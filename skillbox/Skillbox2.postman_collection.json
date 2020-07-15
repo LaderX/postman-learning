@@ -1,0 +1,250 @@
+{
+	"info": {
+		"_postman_id": "4054498b-2b34-431c-bc0f-f625f8fd3e50",
+		"name": "Skillbox2",
+		"description": "Skillbox practice module 21",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "All Users",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "63154ddd-2f5a-4bb0-a14a-0fd8d1d643a9",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api-qa.skillbox.ru/practice2/api/users/",
+					"protocol": "http",
+					"host": [
+						"api-qa",
+						"skillbox",
+						"ru"
+					],
+					"path": [
+						"practice2",
+						"api",
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "First User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e13672ab-9c83-45a0-b30d-3bd440e1004c",
+						"exec": [
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type is json\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Check id\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.id).to.eql(1);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check Name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.person.name).to.eql(\"Иванов\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check Surname\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.person.surname).to.eql(\"Иван\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check Patronymic\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.person.patronymic).to.eql(\"Иванович\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check DateOfBirth\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.person.dateOfBirth).to.eql(\"11.11.1991\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check Lication\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.person.location).to.eql(\"СПб\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check All eql\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.eql({\r",
+							"        \"id\": 1,\r",
+							"        \"person\": {\r",
+							"            \"name\": \"Иванов\",\r",
+							"            \"surname\": \"Иван\",\r",
+							"            \"patronymic\": \"Иванович\",\r",
+							"            \"dateOfBirth\": \"11.11.1991\",\r",
+							"            \"location\": \"СПб\"\r",
+							"        }\r",
+							"    })\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api-qa.skillbox.ru/practice2/api/users/1",
+					"protocol": "http",
+					"host": [
+						"api-qa",
+						"skillbox",
+						"ru"
+					],
+					"path": [
+						"practice2",
+						"api",
+						"users",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Filter Name Жора",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "446e3bf5-c295-4766-b30c-700386b9d936",
+						"exec": [
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type is json\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check eql response\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.eql([\r",
+							"        {\r",
+							"            \"id\": 2,\r",
+							"            \"person\": {\r",
+							"                \"name\": \"Жора\",\r",
+							"                \"surname\": \"Жорин\",\r",
+							"                \"patronymic\": \"Жирович\",\r",
+							"                \"dateOfBirth\": null,\r",
+							"                \"location\": \"Тверь\"\r",
+							"            }\r",
+							"        },\r",
+							"        {\r",
+							"            \"id\": 3,\r",
+							"            \"person\": {\r",
+							"                \"name\": \"Жора\",\r",
+							"                \"surname\": \"Жира\",\r",
+							"                \"patronymic\": \"Жоров\",\r",
+							"                \"dateOfBirth\": null,\r",
+							"                \"location\": null\r",
+							"            }\r",
+							"        },\r",
+							"        {\r",
+							"            \"id\": 4,\r",
+							"            \"person\": {\r",
+							"                \"name\": \"Жора\",\r",
+							"                \"surname\": \"Федоров\",\r",
+							"                \"patronymic\": \"Александровичь\",\r",
+							"                \"dateOfBirth\": null,\r",
+							"                \"location\": \"Тверь\"\r",
+							"            }\r",
+							"        },\r",
+							"        {\r",
+							"            \"id\": 11,\r",
+							"            \"person\": {\r",
+							"                \"name\": \"Жора\",\r",
+							"                \"surname\": \"Дмитев\",\r",
+							"                \"patronymic\": \"Дмитревич\",\r",
+							"                \"dateOfBirth\": null,\r",
+							"                \"location\": \"Курган\"\r",
+							"            }\r",
+							"        }\r",
+							"    ]);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api-qa.skillbox.ru/practice2/api/users/?name=Жора",
+					"protocol": "http",
+					"host": [
+						"api-qa",
+						"skillbox",
+						"ru"
+					],
+					"path": [
+						"practice2",
+						"api",
+						"users",
+						""
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Жора"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "testir",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "testirovka",
+				"type": "string"
+			}
+		]
+	},
+	"protocolProfileBehavior": {}
+}

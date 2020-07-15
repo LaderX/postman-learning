@@ -1,0 +1,158 @@
+{
+	"info": {
+		"_postman_id": "63503d2c-6af9-4dac-8c19-13da9912ed35",
+		"name": "Skillbox3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "All User APIv1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{domain}}/api/users/",
+					"protocol": "http",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"itemsOfClients\":\r\n\t[\r\n\t\t{\r\n\t\t\"id\": 15,\r\n\t\t\"person\": {\r\n\t\t\t\"name\": \"Батер\",\r\n\t\t\t\"surname\": \"Флай\",\r\n\t\t\t\"patronymic\": \"Баторович\",\r\n\t\t\t\"dateOfBirth\": null,\r\n\t\t\t\"location\": null\r\n\t\t\t}\r\n\t\t}\r\n\t]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://api-qa.skillbox.ru/practice1/api/users/create",
+					"protocol": "http",
+					"host": [
+						"api-qa",
+						"skillbox",
+						"ru"
+					],
+					"path": [
+						"practice1",
+						"api",
+						"users",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create User Copy",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"update\": {\r\n\t\t\"name\":\"Малкович\"\r\n\t}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://api-qa.skillbox.ru/practice1/api/users/14/update",
+					"protocol": "http",
+					"host": [
+						"api-qa",
+						"skillbox",
+						"ru"
+					],
+					"path": [
+						"practice1",
+						"api",
+						"users",
+						"14",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delite User",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://api-qa.skillbox.ru/practice1/api/users/15/delete",
+					"protocol": "http",
+					"host": [
+						"api-qa",
+						"skillbox",
+						"ru"
+					],
+					"path": [
+						"practice1",
+						"api",
+						"users",
+						"15",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delite All Users",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://api-qa.skillbox.ru/practice1/api/users/allUsers/delete",
+					"protocol": "http",
+					"host": [
+						"api-qa",
+						"skillbox",
+						"ru"
+					],
+					"path": [
+						"practice1",
+						"api",
+						"users",
+						"allUsers",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "testir",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "testirovka",
+				"type": "string"
+			}
+		]
+	},
+	"protocolProfileBehavior": {}
+}

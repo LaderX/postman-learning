@@ -1,0 +1,76 @@
+{
+	"info": {
+		"_postman_id": "93c9a2b7-3655-4218-a43e-c9e980b8f7aa",
+		"name": "Learn Fork and Merge",
+		"description": "This collection template helps you get started with forking and merging in Postman.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Simple GET Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://postman-echo.com/get?query=param",
+					"protocol": "https",
+					"host": [
+						"postman-echo",
+						"com"
+					],
+					"path": [
+						"get"
+					],
+					"query": [
+						{
+							"key": "query",
+							"value": "param"
+						}
+					]
+				},
+				"description": "This is a plain **GET** request."
+			},
+			"response": []
+		},
+		{
+			"name": "A POST Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "key",
+							"value": "value",
+							"type": "text"
+						}
+					],
+					"options": {
+						"formdata": {}
+					}
+				},
+				"url": {
+					"raw": "https://postman-echo.com/post?query=param",
+					"protocol": "https",
+					"host": [
+						"postman-echo",
+						"com"
+					],
+					"path": [
+						"post"
+					],
+					"query": [
+						{
+							"key": "query",
+							"value": "param"
+						}
+					]
+				},
+				"description": "This is a **POST** request."
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
